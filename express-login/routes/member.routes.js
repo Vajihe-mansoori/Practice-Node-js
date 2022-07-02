@@ -3,6 +3,7 @@ const {
   createMember,
   readMember,
   updateMember,
+  deleteMember,
 } = require("../controllers/member.controller");
 const { check } = require("express-validator");
 
@@ -16,5 +17,6 @@ router.post(
 );
 router.get("/", readMember);
 router.put("/:id", updateMember);
+router.delete("/:id", deleteMember);
 
 module.exports = router;
