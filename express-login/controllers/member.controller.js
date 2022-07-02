@@ -33,4 +33,19 @@ const readMember = async (req, res) => {
   }
 };
 
-module.exports = { createMember, readMember };
+const updateMember = async (req, res) => {
+  try {
+    const member = await Member.findByIdAndUpdate(
+      req.params.id,
+      {
+        $set: req.body,
+      },
+      { new: true, runValidators: true }
+    );
+    res.status(200).json(member);
+  } catch (err) {
+    res.status(500).json(err.message);
+  }
+};
+
+module.exports = { createMember, readMember, updateMember };

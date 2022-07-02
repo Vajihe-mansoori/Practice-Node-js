@@ -2,6 +2,7 @@ const router = require("express").Router();
 const {
   createMember,
   readMember,
+  updateMember,
 } = require("../controllers/member.controller");
 const { check } = require("express-validator");
 
@@ -14,5 +15,6 @@ router.post(
   createMember
 );
 router.get("/", readMember);
+router.put("/:id", updateMember);
 
 module.exports = router;
