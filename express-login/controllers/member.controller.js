@@ -24,4 +24,13 @@ const createMember = async (req, res) => {
   }
 };
 
-module.exports = { createMember };
+const readMember = async (req, res) => {
+  try {
+    const members = await Member.find({});
+    res.status(200).json(members);
+  } catch (err) {
+    res.status(500).json(err.message);
+  }
+};
+
+module.exports = { createMember, readMember };

@@ -1,5 +1,8 @@
 const router = require("express").Router();
-const { createMember } = require("../controllers/member.controller");
+const {
+  createMember,
+  readMember,
+} = require("../controllers/member.controller");
 const { check } = require("express-validator");
 
 router.post(
@@ -10,5 +13,6 @@ router.post(
   ],
   createMember
 );
+router.get("/", readMember);
 
 module.exports = router;
